@@ -1,0 +1,1 @@
+{"env": "BreakoutNoFrameskip-v4", "gpu": true, "lr_schedule": [[0, 0.0007], [20000000, 1e-12]], "num_envs_per_worker": 5, "num_workers": 5, "sample_batch_size": 100}
