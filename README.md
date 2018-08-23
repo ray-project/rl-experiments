@@ -1,4 +1,4 @@
-## RLlib Atari Benchmarks
+## RLlib Atari Results
 
 Benchmarks of [RLlib](https://rllib.io) algorithms against published results. These benchmarks are a work in progress. For other results to compare against, see [yarlp](https://github.com/btaba/yarlp) and [more plots](https://github.com/openai/baselines-results/blob/master/acktr_ppo_acer_a2c_atari.ipynb) from OpenAI.
 
@@ -6,7 +6,7 @@ Benchmarks of [RLlib](https://rllib.io) algorithms against published results. Th
 
 `rllib train -f atari-impala/atari-impala.yaml`
 
-`rllib train -f atari-impala/atari-a2c.yaml`
+`rllib train -f atari-a2c/atari-a2c.yaml`
 
 RLlib IMPALA and A2C on 10M time-steps (**40M frames**). Results compared to learning curves from [Mnih et al, 2016](https://arxiv.org/pdf/1602.01783.pdf) extracted at 10M time-steps from Figure 3.
 
@@ -31,3 +31,19 @@ IMPALA plots:
 
 A2C plots:
 ![tensorboard](/atari-a2c/atari-a2c.png)
+
+#### PPO
+
+`rllib train -f atari-ppo/atari-ppo.yaml`
+
+RLlib PPO after 10M time-steps (**40M frames**). TODO: these results can probably be improved with more tuning.
+
+|env|RLlib PPO 10-workers|
+|---|---|
+|BeamRider|1206|
+|Breakout|122|
+|QBert|9847|
+|SpaceInvaders|682|
+
+PPO plots:
+![tensorboard](/atari-ppo/atari-ppo.png)
