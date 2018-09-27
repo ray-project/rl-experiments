@@ -32,6 +32,17 @@ IMPALA plots:
 A2C plots:
 ![tensorboard](/atari-a2c/atari-a2c.png)
 
+#### DQN
+
+`rllib train -f atari-dqn/basic-dqn.yaml`
+
+| env  |  Basic DQN |  Prio. Duel DDQN | Rainbow  |  Hessel et al. DQN |  Hessel et al. Rainbow |
+|---|---|---|---|---|---|
+|BeamRider|2880|TODO|TODO|~2000|~13000|
+|Breakout|280|TODO|TODO|~150|~300|
+|QBert|3969|TODO|TODO|~4000|~20000|
+|SpaceInvaders|631|TODO|TODO|~500|~2000|
+
 #### PPO
 
 `rllib train -f atari-ppo/atari-ppo.yaml`
@@ -47,3 +58,20 @@ RLlib PPO after 10M time-steps (**40M frames**). TODO: these results can probabl
 
 PPO plots:
 ![tensorboard](/atari-ppo/atari-ppo.png)
+
+#### DQN
+
+`rllib train -f atari-dqn/basic-dqn.yaml`
+
+`rllib train -f atari-dqn/dueling-ddqn.yaml`
+
+`rllib train -f atari-dqn/rainbow.yaml`
+
+RLlib DQNs after 10M time-steps (**40M frames**).
+
+|env|Basic DQN|Dueling DDQN|Rainbow|Hessel et a. DQN|Hessel et al. Rainbow|
+|---|---|---|---|---|
+|BeamRider|2724|1074|2200|~2000|~13000|
+|Breakout|281|38|72|~150|~300|
+|QBert|796|3517|1059|~4000|~20000|
+|SpaceInvaders|629|459|700|~500|~2000|
