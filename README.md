@@ -52,14 +52,14 @@ Basic DQN plots:
 
 `rllib train -f atari-ppo/atari-ppo.yaml`
 
-RLlib PPO after 10M time-steps (**40M frames**). TODO: these results can probably be improved with more tuning.
+RLlib PPO with 10 workers after 10M and 25M time-steps (**40M/100M frames**).
 
-|env|RLlib PPO 10-workers|
-|---|---|
-|BeamRider|1206|
-|Breakout|122|
-|QBert|9847|
-|SpaceInvaders|682|
+|env|RLlib PPO @10M|RLlib PPO @25M|Baselines PPO @10M|
+|---|---|---|---|
+|BeamRider|2807|4480|~1800|
+|Breakout|104|201|~250|
+|QBert|11085|14247|~14000|
+|SpaceInvaders|671|944|~800|
 
 PPO plots:
 ![tensorboard](/atari-ppo/atari-ppo.png)
