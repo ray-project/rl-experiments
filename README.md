@@ -2,6 +2,31 @@
 
 Benchmarks of [RLlib](https://rllib.io) algorithms against published results. These benchmarks are a work in progress. For other results to compare against, see [yarlp](https://github.com/btaba/yarlp) and [more plots](https://github.com/openai/baselines-results/blob/master/acktr_ppo_acer_a2c_atari.ipynb) from OpenAI.
 
+#### Ape-X Distributed Prioritized Experience Replay
+
+`rllib train -f atari-apex/atari-apex.yaml`
+
+Comparison of RLlib Ape-X to Async DQN after 10M time-steps (**40M frames**). Results compared to learning curves from [Mnih et al, 2016](https://arxiv.org/pdf/1602.01783.pdf) extracted at 10M time-steps from Figure 3.
+
+|env|RLlib Ape-X 8-workers|Mnih et al Async DQN 16-workers|Mnih et al DQN 1-worker|
+|---|---|---|---|
+|BeamRider|6134|~6000|~3000|
+|Breakout|123|~50|~10|
+|QBert|15302|~1200|~500|
+|SpaceInvaders|686|~600|~500|
+
+Here we use only eight workers per environment in order to run all experiments concurrently on a single g3.16xl machine. Further speedups may be obtained by using more workers. Comparing wall-time performance after 1 hour of training:
+
+|env|RLlib Ape-X 8-workers|Mnih et al Async DQN 16-workers|Mnih et al DQN 1-worker|
+|---|---|---|---|
+|BeamRider|4873|~1000|~300|
+|Breakout|77|~10|~1|
+|QBert|4083|~500|~150|
+|SpaceInvaders|646|~300|~160|
+
+Ape-X plots:
+![apex](/atari-apex/apex.png)
+
 #### IMPALA and A2C
 
 `rllib train -f atari-impala/atari-impala.yaml`
@@ -10,7 +35,7 @@ Benchmarks of [RLlib](https://rllib.io) algorithms against published results. Th
 
 RLlib IMPALA and A2C on 10M time-steps (**40M frames**). Results compared to learning curves from [Mnih et al, 2016](https://arxiv.org/pdf/1602.01783.pdf) extracted at 10M time-steps from Figure 3.
 
-|env|RLlib IMPALA 32-workers|RLlib A2C 5-workers|Mnih et al A3C 40M 16-threads|
+|env|RLlib IMPALA 32-workers|RLlib A2C 5-workers|Mnih et al A3C 16-workers|
 |---|---|---|---|
 |BeamRider|2071|1401|~3000|
 |Breakout|385|374|~150|
@@ -19,7 +44,7 @@ RLlib IMPALA and A2C on 10M time-steps (**40M frames**). Results compared to lea
 
 IMPALA and A2C vs A3C after 1 hour of training:
 
-|env|RLlib IMPALA 32-workers|RLlib A2C 5-workers|Mnih et al A3C 1h 16-threads|
+|env|RLlib IMPALA 32-workers|RLlib A2C 5-workers|Mnih et al A3C 16-workers|
 |---|---|---|---|
 |BeamRider|3181|874|~1000|
 |Breakout|538|268|~10|
@@ -56,7 +81,7 @@ Dueling DDQN plots:
 Distributional DQN plots:
 ![tensorboard](/atari-dqn/dist-dqn.png)
 
-#### PPO
+#### Proximal Policy Optimization
 
 `rllib train -f atari-ppo/atari-ppo.yaml`
 
