@@ -32,27 +32,35 @@ IMPALA plots:
 A2C plots:
 ![tensorboard](/atari-a2c/atari-a2c.png)
 
-#### DQN
+#### DQN / Rainbow
 
 `rllib train -f atari-dqn/basic-dqn.yaml`
+`rllib train -f atari-dqn/duel-ddqn.yaml`
+`rllib train -f atari-dqn/dist-dqn.yaml`
 
-RLlib DQN after 10M time-steps (**40M frames**).
+RLlib DQN after 10M time-steps (**40M frames**). Note that RLlib evaluation scores include the 1% random actions of epsilon-greedy exploration. You can expect slightly higher rewards when rolling out the policies without any exploration at all.
 
-| env  |  RLlib Basic DQN |  Prio. Duel DDQN | Rainbow  |  Hessel et al. DQN |  Hessel et al. Rainbow |
+| env  |  RLlib Basic DQN | RLlib Dueling DDQN | RLlib Distributional DQN  |  Hessel et al. DQN |  Hessel et al. Rainbow |
 |---|---|---|---|---|---|
-|BeamRider|2869|TODO|TODO|~2000|~13000|
-|Breakout|287|TODO|TODO|~150|~300|
-|QBert|3921|TODO|TODO|~4000|~20000|
-|SpaceInvaders|650|TODO|TODO|~500|~2000|
+|BeamRider|2869|1910|4447|~2000|~13000|
+|Breakout|287|312|410|~150|~300|
+|QBert|3921|7968|15780|~4000|~20000|
+|SpaceInvaders|650|1001|1025|~500|~2000|
 
 Basic DQN plots:
 ![tensorboard](/atari-dqn/basic-dqn.png)
+
+Dueling DDQN plots:
+![tensorboard](/atari-dqn/dueling-ddqn.png)
+
+Distributional DQN plots:
+![tensorboard](/atari-dqn/dist-dqn.png)
 
 #### PPO
 
 `rllib train -f atari-ppo/atari-ppo.yaml`
 
-RLlib PPO with 10 workers after 10M and 25M time-steps (**40M/100M frames**).
+RLlib PPO with 10 workers after 10M and 25M time-steps (**40M/100M frames**). Note that RLlib does not use clip parameter annealing.
 
 |env|RLlib PPO @10M|RLlib PPO @25M|Baselines PPO @10M|
 |---|---|---|---|
