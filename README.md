@@ -57,6 +57,13 @@ IMPALA plots:
 A2C plots:
 ![tensorboard](/atari-a2c/atari-a2c.png)
 
+#### Pong in 3 minutes
+With a bit of tuning, RLlib IMPALA can solve Pong in ~3 minutes:
+
+`rllib train -f pong-speedrun/pong-impala-fast.yaml`
+
+![tensorboard](/pong-speedrun/pong-impala.png)
+
 #### DQN / Rainbow
 
 `rllib train -f atari-dqn/basic-dqn.yaml`

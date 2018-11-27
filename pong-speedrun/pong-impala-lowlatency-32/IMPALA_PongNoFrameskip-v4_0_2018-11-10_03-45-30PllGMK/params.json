@@ -1,0 +1,1 @@
+{"env": "PongNoFrameskip-v4", "lr": 0.0005, "max_sample_requests_in_flight_per_worker": 1, "model": {"dim": 42}, "num_envs_per_worker": 5, "num_gpus": 2, "num_parallel_data_loaders": 4, "num_workers": 32, "replay_buffer_num_slots": 100, "replay_proportion": 0.0, "sample_batch_size": 50, "train_batch_size": 1000}
