@@ -1,4 +1,4 @@
-## RLlib Atari Results
+## RLlib Reference Results
 
 Benchmarks of [RLlib](https://rllib.io) algorithms against published results. These benchmarks are a work in progress. For other results to compare against, see [yarlp](https://github.com/btaba/yarlp) and [more plots](https://github.com/openai/baselines-results/blob/master/acktr_ppo_acer_a2c_atari.ipynb) from OpenAI.
 
@@ -92,6 +92,8 @@ Distributional DQN plots:
 
 `rllib train -f atari-ppo/atari-ppo.yaml`
 
+`rllib train -f halfcheetah-ppo/halfcheetah-ppo.yaml`
+
 RLlib PPO with 10 workers after 10M and 25M time-steps (**40M/100M frames**). Note that RLlib does not use clip parameter annealing.
 
 |env|RLlib PPO @10M|RLlib PPO @25M|Baselines PPO @10M|
@@ -101,5 +103,12 @@ RLlib PPO with 10 workers after 10M and 25M time-steps (**40M/100M frames**). No
 |QBert|11085|14247|~14000|
 |SpaceInvaders|671|944|~800|
 
-PPO plots:
 ![tensorboard](/atari-ppo/atari-ppo.png)
+
+RLlib PPO wall-time performance vs other implementations using the same number of CPUs. Results compared to learning curves from [Fan et al, 2018](https://surreal.stanford.edu/img/surreal-corl2018.pdf) extracted at 1 hour of training from Figure 7. Here we get optimal results with a vectorization of 32 environment instances per worker:
+
+|env|RLlib PPO 16-workers|Fan et al PPO 16-workers|TF BatchPPO 16-workers|
+|---|---|---|---|
+|HalfCheetah|9664|~7700|~3200|
+
+![tensorboard](/halfcheetah-ppo/halfcheetah-ppo.png)
