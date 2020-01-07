@@ -112,3 +112,17 @@ RLlib PPO wall-time performance vs other implementations using a single Titan XP
 |HalfCheetah|9664|~7700|~3200|
 
 ![tensorboard](/halfcheetah-ppo/halfcheetah-ppo.png)
+
+#### Soft Actor Critic
+
+`rllib train -f halfcheetah-sac/halfcheetah-sac.yaml`
+
+RLlib SAC after 3M time-steps. 
+
+RLlib SAC versus SoftLearning implementation [Haarnoja et al, 2018](https://arxiv.org/pdf/1801.01290.pdf) benchmarked at 500k and 3M timesteps respectively.
+
+|env|RLlib SAC @500K|Haarnoja et al SAC @500K|RLlib SAC @3M|Haarnoja et al SAC @3M|
+|---|---|---|---|---|
+|HalfCheetah|9000|~9000|13000|~15000|
+
+![tensorboard](/halfcheetah-sac/halfcheetah-sac.PNG)
