@@ -1,0 +1,47 @@
+Failure # 1 (occurred at 2020-01-20_20-26-19)
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/tune/trial_runner.py", line 424, in _process_trial
+    result = self.trial_executor.fetch_result(trial)
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/tune/ray_trial_executor.py", line 378, in fetch_result
+    result = ray.get(trial_future[0], DEFAULT_GET_TIMEOUT)
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/worker.py", line 1492, in get
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(RayOutOfMemoryError): [36mray_worker[39m (pid=6044, ip=172.31.22.183)
+  File "python/ray/_raylet.pyx", line 643, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 623, in function_executor
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/rllib/agents/trainer.py", line 450, in train
+    raise e
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/rllib/agents/trainer.py", line 439, in train
+    result = Trainable.train(self)
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/tune/trainable.py", line 254, in train
+    result = self._train()
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/rllib/agents/trainer_template.py", line 133, in _train
+    res = self.collect_metrics()
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/rllib/agents/trainer.py", line 765, in collect_metrics
+    selected_workers=selected_workers)
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/rllib/optimizers/policy_optimizer.py", line 104, in collect_metrics
+    timeout_seconds=timeout_seconds)
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/rllib/evaluation/metrics.py", line 71, in collect_episodes
+    metric_lists = ray_get_and_free(collected)
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/rllib/utils/memory.py", line 29, in ray_get_and_free
+    result = ray.get(object_ids)
+ray.exceptions.RayTaskError(RayOutOfMemoryError): [36mray_worker[39m (pid=6052, ip=172.31.22.183)
+  File "python/ray/_raylet.pyx", line 631, in ray._raylet.execute_task
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/memory_monitor.py", line 126, in raise_if_low_memory
+    self.error_threshold))
+ray.memory_monitor.RayOutOfMemoryError: More than 95% of the memory on node ip-172-31-22-183 is used (114.01 / 120.0 GB). The top 10 memory consumers are:
+
+PID	MEM	COMMAND
+6047	9.2GiB	/home/ubuntu/anaconda3/envs/tensorflow_p36/bin/python /home/ubuntu/anaconda3/envs/tensorflow_p36/lib
+6040	9.19GiB	/home/ubuntu/anaconda3/envs/tensorflow_p36/bin/python /home/ubuntu/anaconda3/envs/tensorflow_p36/lib
+6050	9.19GiB	/home/ubuntu/anaconda3/envs/tensorflow_p36/bin/python /home/ubuntu/anaconda3/envs/tensorflow_p36/lib
+6039	9.18GiB	/home/ubuntu/anaconda3/envs/tensorflow_p36/bin/python /home/ubuntu/anaconda3/envs/tensorflow_p36/lib
+6046	9.16GiB	/home/ubuntu/anaconda3/envs/tensorflow_p36/bin/python /home/ubuntu/anaconda3/envs/tensorflow_p36/lib
+6042	9.16GiB	/home/ubuntu/anaconda3/envs/tensorflow_p36/bin/python /home/ubuntu/anaconda3/envs/tensorflow_p36/lib
+6038	9.16GiB	/home/ubuntu/anaconda3/envs/tensorflow_p36/bin/python /home/ubuntu/anaconda3/envs/tensorflow_p36/lib
+6053	9.16GiB	/home/ubuntu/anaconda3/envs/tensorflow_p36/bin/python /home/ubuntu/anaconda3/envs/tensorflow_p36/lib
+6045	9.15GiB	/home/ubuntu/anaconda3/envs/tensorflow_p36/bin/python /home/ubuntu/anaconda3/envs/tensorflow_p36/lib
+6052	9.15GiB	/home/ubuntu/anaconda3/envs/tensorflow_p36/bin/python /home/ubuntu/anaconda3/envs/tensorflow_p36/lib
+
+In addition, up to 14.53 GiB of shared memory is currently being used by the Ray object store. You can set the object store size with the `object_store_memory` parameter when starting Ray, and the max Redis size with `redis_max_memory`. Note that Ray assumes all system memory is available for use by workers. If your system has other applications running, you should manually set these memory limits to a lower value.
+
