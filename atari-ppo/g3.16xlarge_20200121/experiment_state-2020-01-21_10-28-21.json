@@ -351,15 +351,15 @@
   ],
   "runner_data": {
     "_global_time_limit": Infinity,
-    "_total_time": 19058.899823904037,
-    "_iteration": 2438,
+    "_total_time": 43016.5177834034,
+    "_iteration": 5509,
     "_verbose": false,
     "_server_port": 4321,
     "_local_checkpoint_dir": "/home/ubuntu/ray_results/atari-ppo",
     "_remote_checkpoint_dir": null,
     "_resumed": false,
     "_start_time": 1579602501.2583485,
-    "_last_checkpoint_time": 1579607288.9658923,
+    "_last_checkpoint_time": 1579613292.2053466,
     "_checkpoint_period": 10,
     "_session_str": "2020-01-21_10-28-21",
     "checkpoint_file": "/home/ubuntu/ray_results/atari-ppo/experiment_state-2020-01-21_10-28-21.json",
@@ -367,6 +367,6 @@
   },
   "stats": {
     "start_time": 1579602501.2583485,
-    "timestamp": 1579607288.9658923
+    "timestamp": 1579613292.2053466
   }
 }
