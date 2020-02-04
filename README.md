@@ -94,15 +94,28 @@ Distributional DQN plots:
 
 `rllib train -f halfcheetah-ppo/halfcheetah-ppo.yaml`
 
-RLlib PPO with 10 workers after 10M and 25M time-steps (**40M/100M frames**). Note that RLlib does not use clip parameter annealing.
+##### *2018-09:*
+RLlib PPO with 10 workers (5 envs per worker) after 10M and 25M time-steps 
+(**40M/100M frames**). Note that RLlib does not use clip parameter annealing.
 
-|env|RLlib PPO @10M|RLlib PPO @25M|Baselines PPO @10M|
+|env|RLlib PPO @10M|RLlib PPO @25M|Baselines PPO @10M/
 |---|---|---|---|
 |BeamRider|2807|4480|~1800|
 |Breakout|104|201|~250|
 |QBert|11085|14247|~14000|
 |SpaceInvaders|671|944|~800|
-k
+
+##### *2020-01:*
+
+Same as 2018-09, comparing only RLlib PPO-tf vs PPO-torch.
+
+|env|RLlib PPO @20M (tf)|RLlib PPO @20M (torch)/
+|---|---|---|
+|BeamRider|4142|3850|
+|Breakout|132|166|
+|QBert|7987|14294/
+|SpaceInvaders|956|1016|
+
 ![tensorboard](/atari-ppo/2018-09/atari-ppo.png)
 
 RLlib PPO wall-time performance vs other implementations using a single Titan XP and the same number of CPUs. Results compared to learning curves from [Fan et al, 2018](https://surreal.stanford.edu/img/surreal-corl2018.pdf) extracted at 1 hour of training from Figure 7. Here we get optimal results with a vectorization of 32 environment instances per worker:
