@@ -98,7 +98,7 @@ Distributional DQN plots:
 RLlib PPO with 10 workers (5 envs per worker) after 10M and 25M time-steps 
 (**40M/100M frames**). Note that RLlib does not use clip parameter annealing.
 
-|env|RLlib PPO @10M|RLlib PPO @25M|Baselines PPO @10M/
+|env|RLlib PPO @10M|RLlib PPO @25M|Baselines PPO @10M|
 |---|---|---|---|
 |BeamRider|2807|4480|~1800|
 |Breakout|104|201|~250|
@@ -109,7 +109,7 @@ RLlib PPO with 10 workers (5 envs per worker) after 10M and 25M time-steps
 
 Same as 2018-09, comparing only RLlib PPO-tf vs PPO-torch.
 
-|env|RLlib PPO @20M (tf)|RLlib PPO @20M (torch)/
+|env|RLlib PPO @20M (tf)|RLlib PPO @20M (torch)|
 |---|---|---|
 |BeamRider|4142|3850|
 |Breakout|132|166|
