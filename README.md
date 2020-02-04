@@ -102,8 +102,8 @@ RLlib PPO with 10 workers after 10M and 25M time-steps (**40M/100M frames**). No
 |Breakout|104|201|~250|
 |QBert|11085|14247|~14000|
 |SpaceInvaders|671|944|~800|
-
-![tensorboard](/atari-ppo/atari-ppo.png)
+k
+![tensorboard](/atari-ppo/2018-09/atari-ppo.png)
 
 RLlib PPO wall-time performance vs other implementations using a single Titan XP and the same number of CPUs. Results compared to learning curves from [Fan et al, 2018](https://surreal.stanford.edu/img/surreal-corl2018.pdf) extracted at 1 hour of training from Figure 7. Here we get optimal results with a vectorization of 32 environment instances per worker:
 
