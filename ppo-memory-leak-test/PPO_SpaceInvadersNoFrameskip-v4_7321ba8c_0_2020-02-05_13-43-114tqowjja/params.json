@@ -1,0 +1,6 @@
+{
+  "batch_mode": "complete_episodes",
+  "env": "SpaceInvadersNoFrameskip-v4",
+  "use_gae": false,
+  "use_pytorch": true
+}

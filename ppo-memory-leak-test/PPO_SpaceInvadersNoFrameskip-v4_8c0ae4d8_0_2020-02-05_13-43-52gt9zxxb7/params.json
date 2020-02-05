@@ -1,0 +1,4 @@
+{
+  "env": "SpaceInvadersNoFrameskip-v4",
+  "use_pytorch": true
+}
