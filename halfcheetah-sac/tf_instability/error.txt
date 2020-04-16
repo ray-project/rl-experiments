@@ -1,0 +1,27 @@
+Failure # 1 (occurred at 2020-04-16_15-07-21)
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/tune/trial_runner.py", line 467, in _process_trial
+    result = self.trial_executor.fetch_result(trial)
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/tune/ray_trial_executor.py", line 431, in fetch_result
+    result = ray.get(trial_future[0], DEFAULT_GET_TIMEOUT)
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/worker.py", line 1488, in get
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(AssertionError): [36mray::SAC.train()[39m (pid=7344, ip=172.31.21.251)
+  File "python/ray/_raylet.pyx", line 459, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 414, in ray._raylet.execute_task.function_executor
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/rllib/agents/trainer.py", line 511, in train
+    raise e
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/rllib/agents/trainer.py", line 497, in train
+    result = Trainable.train(self)
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/tune/trainable.py", line 261, in train
+    result = self._train()
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/rllib/agents/trainer_template.py", line 151, in _train
+    fetches = self.optimizer.step()
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/rllib/optimizers/sync_replay_optimizer.py", line 146, in step
+    self._optimize()
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/rllib/optimizers/sync_replay_optimizer.py", line 195, in _optimize
+    new_priorities)
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/rllib/optimizers/replay_buffer.py", line 265, in update_priorities
+    assert priority > 0
+AssertionError
+
