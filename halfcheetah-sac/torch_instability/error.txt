@@ -1,0 +1,48 @@
+Failure # 1 (occurred at 2020-04-16_16-21-50)
+Traceback (most recent call last):
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/tune/trial_runner.py", line 467, in _process_trial
+    result = self.trial_executor.fetch_result(trial)
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/tune/ray_trial_executor.py", line 431, in fetch_result
+    result = ray.get(trial_future[0], DEFAULT_GET_TIMEOUT)
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/worker.py", line 1488, in get
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(MujocoException): [36mray::SAC.train()[39m (pid=13118, ip=172.31.21.251)
+  File "python/ray/_raylet.pyx", line 459, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 414, in ray._raylet.execute_task.function_executor
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/rllib/agents/trainer.py", line 511, in train
+    raise e
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/rllib/agents/trainer.py", line 497, in train
+    result = Trainable.train(self)
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/tune/trainable.py", line 261, in train
+    result = self._train()
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/rllib/agents/trainer_template.py", line 151, in _train
+    fetches = self.optimizer.step()
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/rllib/optimizers/sync_replay_optimizer.py", line 127, in step
+    batch = self.workers.local_worker().sample()
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/rllib/evaluation/rollout_worker.py", line 504, in sample
+    batches = [self.input_reader.next()]
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/rllib/evaluation/sampler.py", line 53, in next
+    batches = [self.get_data()]
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/rllib/evaluation/sampler.py", line 96, in get_data
+    item = next(self.rollout_provider)
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/rllib/evaluation/sampler.py", line 367, in _env_runner
+    base_env.send_actions(actions_to_send)
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/rllib/env/base_env.py", line 328, in send_actions
+    self.vector_env.vector_step(action_vector)
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/rllib/env/vector_env.py", line 106, in vector_step
+    obs, r, done, info = self.envs[i].step(actions[i])
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/gym/core.py", line 287, in step
+    return self.env.step(self.action(action))
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/gym/wrappers/time_limit.py", line 16, in step
+    observation, reward, done, info = self.env.step(action)
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/gym/envs/mujoco/half_cheetah_v3.py", line 37, in step
+    self.do_simulation(action, self.frame_skip)
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/gym/envs/mujoco/mujoco_env.py", line 125, in do_simulation
+    self.sim.step()
+  File "mujoco_py/mjsim.pyx", line 126, in mujoco_py.cymj.MjSim.step
+  File "mujoco_py/cymj.pyx", line 156, in mujoco_py.cymj.wrap_mujoco_warning.__exit__
+  File "mujoco_py/cymj.pyx", line 77, in mujoco_py.cymj.c_warning_callback
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/mujoco_py/builder.py", line 363, in user_warning_raise_exception
+    raise MujocoException(warn + 'Check for NaN in simulation.')
+mujoco_py.builder.MujocoException: Unknown warning type Time = 20.4000.Check for NaN in simulation.
+
