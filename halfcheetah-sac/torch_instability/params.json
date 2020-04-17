@@ -10,7 +10,7 @@
   "env": "HalfCheetah-v3",
   "evaluation_interval": 1,
   "horizon": 1000,
-  "learning_starts": 10005,
+  "learning_starts": 10014,
   "metrics_smoothing_episodes": 5,
   "n_step": 1,
   "no_done_at_end": true,

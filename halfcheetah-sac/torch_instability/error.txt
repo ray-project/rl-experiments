@@ -1,12 +1,12 @@
-Failure # 1 (occurred at 2020-04-16_16-21-50)
+Failure # 1 (occurred at 2020-04-17_12-30-37)
 Traceback (most recent call last):
   File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/tune/trial_runner.py", line 467, in _process_trial
     result = self.trial_executor.fetch_result(trial)
   File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/tune/ray_trial_executor.py", line 431, in fetch_result
     result = ray.get(trial_future[0], DEFAULT_GET_TIMEOUT)
-  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/worker.py", line 1488, in get
+  File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/worker.py", line 1494, in get
     raise value.as_instanceof_cause()
-ray.exceptions.RayTaskError(MujocoException): [36mray::SAC.train()[39m (pid=13118, ip=172.31.21.251)
+ray.exceptions.RayTaskError(MujocoException): [36mray::SAC.train()[39m (pid=4997, ip=172.31.21.251)
   File "python/ray/_raylet.pyx", line 459, in ray._raylet.execute_task
   File "python/ray/_raylet.pyx", line 414, in ray._raylet.execute_task.function_executor
   File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/ray/rllib/agents/trainer.py", line 511, in train
@@ -44,5 +44,5 @@ ray.exceptions.RayTaskError(MujocoException): [36mray::SAC.train()[39m (pid=13
   File "mujoco_py/cymj.pyx", line 77, in mujoco_py.cymj.c_warning_callback
   File "/home/ubuntu/anaconda3/envs/tensorflow_p36/lib/python3.6/site-packages/mujoco_py/builder.py", line 363, in user_warning_raise_exception
     raise MujocoException(warn + 'Check for NaN in simulation.')
-mujoco_py.builder.MujocoException: Unknown warning type Time = 20.4000.Check for NaN in simulation.
+mujoco_py.builder.MujocoException: Unknown warning type Time = 30.3000.Check for NaN in simulation.
 
