@@ -94,7 +94,9 @@ Distributional DQN plots:
 
 `rllib train -f halfcheetah-ppo/halfcheetah-ppo.yaml`
 
-RLlib PPO with 10 workers after 10M and 25M time-steps (**40M/100M frames**). Note that RLlib does not use clip parameter annealing.
+##### *2018-09:*
+RLlib PPO with 10 workers (5 envs per worker) after 10M and 25M time-steps 
+(**40M/100M frames**). Note that RLlib does not use clip parameter annealing.
 
 |env|RLlib PPO @10M|RLlib PPO @25M|Baselines PPO @10M|
 |---|---|---|---|
@@ -103,7 +105,7 @@ RLlib PPO with 10 workers after 10M and 25M time-steps (**40M/100M frames**). No
 |QBert|11085|14247|~14000|
 |SpaceInvaders|671|944|~800|
 
-![tensorboard](/atari-ppo/atari-ppo.png)
+![tensorboard](/atari-ppo/2018-09/atari-ppo.png)
 
 RLlib PPO wall-time performance vs other implementations using a single Titan XP and the same number of CPUs. Results compared to learning curves from [Fan et al, 2018](https://surreal.stanford.edu/img/surreal-corl2018.pdf) extracted at 1 hour of training from Figure 7. Here we get optimal results with a vectorization of 32 environment instances per worker:
 
@@ -112,6 +114,17 @@ RLlib PPO wall-time performance vs other implementations using a single Titan XP
 |HalfCheetah|9664|~7700|~3200|
 
 ![tensorboard](/halfcheetah-ppo/halfcheetah-ppo.png)
+
+##### *2020-01:*
+
+Same as 2018-09, comparing only RLlib PPO-tf vs PPO-torch.
+
+|env|RLlib PPO @20M (tf)|RLlib PPO @20M (torch)|plot|
+|---|---|---|---|
+|BeamRider|4142|3850|![tensorboard](/atari-ppo/BeamRiderNoFrameskip-v4/episode_reward_mean_tf_vs_torch_timesteps.png)|
+|Breakout|132|166|![tensorboard](/atari-ppo/BreakoutNoFrameskip-v4/episode_reward_mean_tf_vs_torch_timesteps.png)|
+|QBert|7987|14294|![tensorboard](/atari-ppo/QbertNoFrameskip-v4/episode_reward_mean_tf_vs_torch_timesteps.png)|
+|SpaceInvaders|956|1016|![tensorboard](/atari-ppo/SpaceInvadersNoFrameskip-v4/episode_reward_mean_tf_vs_torch_timesteps.png)|
 
 #### Soft Actor Critic
 
