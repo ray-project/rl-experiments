@@ -1,0 +1,10 @@
+{
+  "env": "Ant-v2",
+  "evaluation_interval": 1,
+  "evaluation_num_episodes": 5,
+  "exploration_config": {
+    "random_timesteps": 10000
+  },
+  "learning_starts": 10000,
+  "use_pytorch": false
+}
