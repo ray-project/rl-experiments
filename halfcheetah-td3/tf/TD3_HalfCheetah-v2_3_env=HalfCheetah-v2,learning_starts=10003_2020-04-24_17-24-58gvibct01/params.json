@@ -1,9 +1,0 @@
-{
-  "env": "HalfCheetah-v2",
-  "evaluation_interval": 5,
-  "evaluation_num_episodes": 10,
-  "exploration_config": {
-    "random_timesteps": 10000
-  },
-  "learning_starts": 10003
-}
