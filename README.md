@@ -146,12 +146,12 @@ MAML uses additional metrics to measure performance; `episode_reward_mean` measu
 
 `rllib train -f maml/halfcheetah-rand-direc-maml.yaml`
 
-![tensorboard](/maml/halfcheetah-rand-direc-maml.PNG)
+![tensorboard](/maml/halfcheetah-rand-direc-maml.png)
 
 `rllib train -f maml/ant-rand-goal-maml.yaml`
 
-![tensorboard](/maml/ant-rand-goal-maml.PNG)
+![tensorboard](/maml/ant-rand-goal-maml.png)
 
 `rllib train -f maml/pendulum-mass-maml.yaml`
 
-![tensorboard](/maml/pendulum-mass-maml.PNG)
+![tensorboard](/maml/pendulum-mass-maml.png)
