@@ -139,3 +139,19 @@ RLlib SAC versus SoftLearning implementation [Haarnoja et al, 2018](https://arxi
 |HalfCheetah|9000|~9000|13000|~15000|
 
 ![tensorboard](/halfcheetah-sac/halfcheetah-sac.PNG)
+
+#### MAML
+
+MAML uses additional metrics to measure performance; `episode_reward_mean` measures the agent's returns before adaptation, `episode_reward_mean_adapt_N` measures the agent's returns after N gradient steps of inner adaptation, and `adaptation_delta` measures the difference in performance before and after adaptation.
+
+`rllib train -f maml/halfcheetah-rand-direc-maml.yaml`
+
+![tensorboard](/maml/halfcheetah-rand-direc-maml.PNG)
+
+`rllib train -f maml/ant-rand-goal-maml.yaml`
+
+![tensorboard](/maml/ant-rand-goal-maml.PNG)
+
+`rllib train -f maml/pendulum-mass-maml.yaml`
+
+![tensorboard](/maml/pendulum-mass-maml.PNG)
