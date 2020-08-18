@@ -155,3 +155,22 @@ MAML uses additional metrics to measure performance; `episode_reward_mean` measu
 `rllib train -f maml/pendulum-mass-maml.yaml`
 
 ![tensorboard](/maml/pendulum-mass.png)
+
+#### Dreamer
+
+`rllib train -f dreamer/dreamer-deepmind-control.yaml`
+
+RLlib Dreamer at 1M time-steps. 
+
+RLlib Dreamer versus Google implementation [Danijar et al, 2020](https://arxiv.org/pdf/1912.01603.pdf) benchmarked at 100k and 1M timesteps respectively.
+
+|env|RLlib Dreamer @100K|Haarnoja et al Dreamer @100K|RLlib Dreamer @1M|Danijar et al Dreamer @1M|
+|---|---|---|---|---|
+|Walker|320|~250|920|~930|
+|Cheetah|300|~250|640|~800|
+
+![tensorboard](/dreamer/deepmind-dreamer.png)
+
+RLlib Dreamer also logs gifs of Dreamer's imagined trajectories (Top: Ground truth, Middle: Model prediction, Bottom: Delta).
+
+![Alt Text](/dreamer/walker-dreamer.gif) ![Alt Text](/dreamer/halfcheetah-dreamer.gif)
