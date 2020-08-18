@@ -1,0 +1,4 @@
+Every 1000 time steps, we log gifs to Tensorboard to visualize Dreamer's progress.
+As such, the tensorboard log is several GB, with Google Drive link here:
+https://drive.google.com/file/d/1r-Lh5mjQEEBIB9vZJgrPlObihUGlbP8Z/view?usp=sharing
+
