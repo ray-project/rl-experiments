@@ -164,7 +164,7 @@ RLlib Dreamer at 1M time-steps.
 
 RLlib Dreamer versus Google implementation [Danijar et al, 2020](https://arxiv.org/pdf/1912.01603.pdf) benchmarked at 100k and 1M timesteps respectively.
 
-|env|RLlib Dreamer @100K|Haarnoja et al Dreamer @100K|RLlib Dreamer @1M|Danijar et al Dreamer @1M|
+|env|RLlib Dreamer @100K|Danijar et al Dreamer @100K|RLlib Dreamer @1M|Danijar et al Dreamer @1M|
 |---|---|---|---|---|
 |Walker|320|~250|920|~930|
 |Cheetah|300|~250|640|~800|
