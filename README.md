@@ -173,4 +173,4 @@ RLlib Dreamer versus Google implementation [Danijar et al, 2020](https://arxiv.o
 
 RLlib Dreamer also logs gifs of Dreamer's imagined trajectories (Top: Ground truth, Middle: Model prediction, Bottom: Delta).
 
-![Alt Text](/dreamer/walker-dreamer.gif) ![Alt Text](/dreamer/halfcheetah-dreamer.gif)
+![Alt Text](/dreamer/walker_dreamer.gif) ![Alt Text](/dreamer/halfcheetah_dreamer.gif)
