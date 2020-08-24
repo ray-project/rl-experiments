@@ -156,6 +156,23 @@ MAML uses additional metrics to measure performance; `episode_reward_mean` measu
 
 ![tensorboard](/maml/pendulum-mass.png)
 
+#### MB-MPO
+
+`rllib train -f mbmpo/halfcheetah-mbmpo.yaml`
+
+`rllib train -f mbmpo/hopper-mbmpo.yaml`
+
+MBMPO uses additional metrics to measure performance. For each MBMPO iteration, MBMPO samples fake data from the transition dynamics workers and steps through MAML for `N` iterations. `MAMLIter$i$_DynaTrajInner_$j$_episode_reward_mean` corresponds to agent's performance across the dynamics models at the `i`th iteration of MAML and the `j`th step of inner adaptation.
+
+RLlib MBMPO versus [Clavera et al, 2018](https://arxiv.org/pdf/1809.05214.pdf) benchmarked at 100k timesteps. Results reported below were ran on RLLib and the master branch of the [original codebase](https://github.com/jonasrothfuss/model_ensemble_meta_learning) respectively.
+
+|env|RLlib MBPO @100K|Clavera et al MBMPO @100K|
+|---|---|---|
+|HalfCheetah|520|~550|
+|Hopper|620|~650|
+
+![tensorboard](/mbmpo/mujoco-mbmpo.png)
+
 #### Dreamer
 
 `rllib train -f dreamer/dreamer-deepmind-control.yaml`
