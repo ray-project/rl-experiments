@@ -171,7 +171,7 @@ RLlib MBMPO versus [Clavera et al, 2018](https://arxiv.org/pdf/1809.05214.pdf) b
 |HalfCheetah|520|~550|
 |Hopper|620|~650|
 
-![tensorboard](/mbmpo/mujoco-mbmpo.png)
+![tensorboard](/mbmpo/mbmpo-mujoco.png)
 
 #### Dreamer
 
