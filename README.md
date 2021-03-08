@@ -191,3 +191,21 @@ RLlib Dreamer versus Google implementation [Danijar et al, 2020](https://arxiv.o
 RLlib Dreamer also logs gifs of Dreamer's imagined trajectories (Top: Ground truth, Middle: Model prediction, Bottom: Delta).
 
 ![Alt Text](/dreamer/walker_dreamer.gif) ![Alt Text](/dreamer/halfcheetah_dreamer.gif)
+
+#### CQL
+
+`rllib train -f halfcheetah-cql/halfcheetah-cql.yaml`
+
+`rllib train -f halfcheetah-cql/halfcheetah-bc.yaml`
+
+Since CQL is an offline RL algorithm, CQL's returns are evaluated only during the evaluation loop (once every 1000 gradient steps). 
+
+RLlib CQL versus Behavior Cloning (BC) benchmarked at 500K gradient steps over the dataset. Results reported below were ran on RLLib. The only difference between BC and CQL is the `bc_iters` parameter in CQL (how many iterations to run BC loss).
+
+`HalfCheetah-Random-v1` is a dataset collected by a random policy, with an average performance of around -400 reward. CQL can do better than the original policy's performance.
+
+|env|RLlib BC @500K|RLlib CQL @500K|
+|---|---|---|
+|HalfCheetah-Random-v1|-600|-85|
+
+![tensorboard](/halfcheetah-cql/halfcheetah-cql.png)
