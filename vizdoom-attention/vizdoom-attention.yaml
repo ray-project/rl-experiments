@@ -1,0 +1,21 @@
+vizdoom-ppo:
+    env: VizdoomBasic-v0
+    run: PPO
+    stop:
+        episode_reward_mean: 80
+    config:
+        # Works for both torch and tf.
+        framework: tf
+        vf_loss_coeff: 0.01
+        num_workers: 10
+        model:
+            conv_filters: []
+            use_attention: True
+            attention_num_transformer_units: 1
+            attention_dim: 64
+            attention_num_heads: 2
+            attention_memory_inference: 100
+            attention_memory_training: 50
+            vf_share_layers: True
+            attention_use_n_prev_actions: 0
+            attention_use_n_prev_rewards: 0
