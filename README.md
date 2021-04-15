@@ -209,3 +209,17 @@ RLlib CQL versus Behavior Cloning (BC) benchmarked at 500K gradient steps over t
 |HalfCheetah-Random-v1|-600|-85|
 
 ![tensorboard](/halfcheetah-cql/halfcheetah-cql.png)
+
+#### Transformers
+
+`rllib train -f vizdoom-attention/vizdoom-attention.yaml`
+
+RLlib's model catalog feature implements a variety of different models for the policy and value network, one of which supports using attention in RL. In particular, RLlib implements a Gated Transformer ([Parisotta et al, 2019](https://arxiv.org/pdf/1910.06764.pdf)), abbreviated as GTrXL.
+
+GTrXL is benchmarked in the Vizdoom environment, where the goal is to shoot a monster as quickly as possible. With PPO as the algorithm and GTrXL as the model, RLlib can successfuly solve the Vizdoom environment and reach human level performance.
+
+|env|RLlib Transformer @2M|
+|---|---|
+|VizdoomBasic-v0|~75|
+
+![tensorboard](/vizdoom-attention/vizdoom-attention.png)
