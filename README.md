@@ -198,17 +198,30 @@ RLlib Dreamer also logs gifs of Dreamer's imagined trajectories (Top: Ground tru
 
 `rllib train -f halfcheetah-cql/halfcheetah-bc.yaml`
 
-Since CQL is an offline RL algorithm, CQL's returns are evaluated only during the evaluation loop (once every 1000 gradient steps). 
+Since CQL is an offline RL algorithm, CQL's returns are evaluated only during the evaluation loop (once every 1000 gradient steps for Mujoco-based envs). 
 
-RLlib CQL versus Behavior Cloning (BC) benchmarked at 500K gradient steps over the dataset. Results reported below were ran on RLLib. The only difference between BC and CQL is the `bc_iters` parameter in CQL (how many iterations to run BC loss).
+RLlib CQL versus Behavior Cloning (BC) benchmarked at 1M gradient steps over the dataset derived from the D4RL benchmark ([Fu et al, 2020](https://arxiv.org/abs/2004.07219)). Results reported below were ran on RLLib. The only difference between BC and CQL is the `bc_iters` parameter in CQL (how many iterations to run BC loss).
 
-`HalfCheetah-Random-v1` is a dataset collected by a random policy, with an average performance of around -400 reward. CQL can do better than the original policy's performance.
+RLlib's CQL is evaluated on four different enviornments: `HalfCheetah-Random-v0` and `Hopper-Random-v0` contain datasets collected by a random policy, while `HalfCheetah-Medium-v0` and `Hopper-Medium-v0` contain datasets collected by a policy trained 1/3 of the way through. In all envs, CQL does better than BC by a significant margin (especially `HalfCheetah-Random-v0`).
 
-|env|RLlib BC @500K|RLlib CQL @500K|
+|env|RLlib BC @1M|RLlib CQL @1M|
 |---|---|---|
-|HalfCheetah-Random-v1|-600|-85|
+|HalfCheetah-Random-v0|-320|3000|
+|Hopper-Random-v0|290|320|
+|HalfCheetah-Medium-v0|3450|3850|
+|Hopper-Medium-v0|1000|2000|
 
-![tensorboard](/halfcheetah-cql/halfcheetah-cql.png)
+`rllib train -f cql/halfcheetah-cql.yaml` & `rllib train -f cql/halfcheetah-bc.yaml`
+
+![tensorboard](/cql/halfcheetah-random-cql.png)
+
+![tensorboard](/cql/halfcheetah-medium-cql.png)
+
+`rllib train -f cql/hopper-cql.yaml` & `rllib train -f cql/hopper-bc.yaml`
+
+![tensorboard](/cql/hopper-random-cql.png)
+
+![tensorboard](/cql/hopper-medium-cql.png)
 
 #### Transformers
 
