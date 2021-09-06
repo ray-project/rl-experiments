@@ -1,0 +1,39 @@
+{
+  "Q_model": {
+    "fcnet_activation": "relu",
+    "fcnet_hiddens": [
+      256,
+      256
+    ]
+  },
+  "env": "HalfCheetahBulletEnv-v0",
+  "framework": "tf",
+  "horizon": 1000,
+  "learning_starts": 10000,
+  "metrics_smoothing_episodes": 5,
+  "n_step": 3,
+  "no_done_at_end": false,
+  "num_gpus": 1,
+  "num_workers": 0,
+  "optimization": {
+    "actor_learning_rate": 0.0003,
+    "critic_learning_rate": 0.0003,
+    "entropy_learning_rate": 0.0003
+  },
+  "output": "/home/ray/riot_games_atari_benchmarks/",
+  "policy_model": {
+    "fcnet_activation": "relu",
+    "fcnet_hiddens": [
+      256,
+      256
+    ]
+  },
+  "prioritized_replay": true,
+  "rollout_fragment_length": 1,
+  "soft_horizon": false,
+  "target_entropy": "auto",
+  "target_network_update_freq": 1,
+  "tau": 0.005,
+  "timesteps_per_iteration": 1000,
+  "train_batch_size": 256
+}
